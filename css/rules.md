@@ -102,7 +102,9 @@ ourProject/www/css/elements/menu/menu.css
 ```css
 ourProject/www/css/elements/menu.css
 
-.menu { background-color: #444444; }
+.menu {
+    background-color: #444444;
+}
 /* этот блок будет содержать сами кнопки */
 .menu_content {}
 [class|="menu_button"], .menu_button {
@@ -114,24 +116,30 @@ ourProject/www/css/elements/menu.css
 ```css
 ourProject/www/css/pMain.css
 
-.pMain .menu { height: 140px; }
+.pMain .menu {
+    float: left;
+    width: 400px;
+}
 .pMain .menu_content {
-    width: 900px;
-    margin: 0 auto;
+    margin-left: 200px;
+}
+.pMain [class|="menu_button"], .pMain .menu_button {
+    float: left;
 }
 ```
-Таким образом у нас на главной будет меню сверху и по центру. В Контексте Профиля (внутренней страницы) будут вот такие описания:  
+Таким образом на главной у нас меню будет слева и столбиком. В Контексте Профиля (внутренней страницы) будут вот такие описания:  
 ```css
 ourProject/www/css/pInner.css
 
 .pInner .menu {
-    float: left;
-    width: 400px;
+    height: 140px;
 }
-.pInner .menu_content { margin-left: 200px; }
-.pInner [class|="menu_button"], .pInner .menu_button { float: left; }
+.pInner .menu_content {
+    width: 900px;
+    margin: 0 auto;
+}
 ```
-Теперь на главной у нас кнопки идут друг за другом.
+Теперь на внутряке у нас кнопки в одну строчку и идут друг за другом.
 
 Разумеется, у нас это всё сработает, если содержимое страничек будет обёрнуто в блок с классом "pInner" или "pMain".  
 Но что делать, если оборачивать не хочется? Тогда вы просто можете изменить Элементы не через Контекст, а через Разновидность. Вот как будет это выглядеть:  
